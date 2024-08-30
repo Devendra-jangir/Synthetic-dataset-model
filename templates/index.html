@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Customer Churn Prediction</h2>
+        <form action="/predict" method="POST">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" required><br>
+
+            <label for="tenure">Tenure:</label>
+            <input type="text" id="tenure" name="tenure" required><br>
+
+            <label for="monthly_charges">Monthly Charges:</label>
+            <input type="text" id="monthly_charges" name="monthly_charges" required><br>
+
+            <label for="contract_type">Contract Type (1 for One Year, 2 for Two Years):</label>
+            <input type="text" id="contract_type" name="contract_type" required><br>
+
+            <button type="submit">Predict Churn</button>
+        </form>
+
+        {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
